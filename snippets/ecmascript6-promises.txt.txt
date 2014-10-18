@@ -1,0 +1,38 @@
+// Callback-based
+doSomething("http://www.google.com", function(err) {
+		// error handling
+	}, function(response) {
+		// first success handling
+		doSomethingElse(success, function(error) {
+			...
+		}, function(success) {
+			...
+		});
+	}
+);
+
+// Promise-based
+doSomething("http://www.google.com").
+then(function(response) {
+	// success handling
+	return(doSomethingElse(response));	
+}).then(function(response) {
+	// some more success processing
+}).catch(function(error) {
+	// error handling
+});
+
+// Compiled with traceur
+$traceurRuntime.ModuleStore.getAnonymousModule(function() {
+  "use strict";
+  function doSomething(foo) {
+    return new Promise((function(resolve) {
+      return (foo);
+    }));
+  }
+  doSomething("http://www.google.com").then(function(response) {
+    return (doSomethingElse(response));
+  }).then(function(response) {}).catch(function(error) {});
+  return {};
+});
+//# sourceURL=traceured.js

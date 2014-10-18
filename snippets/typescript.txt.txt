@@ -1,0 +1,16 @@
+interface AbstractGreeter {
+	greet();
+}
+
+class Greeter<T> implements AbstractGreeter {
+    greeting: T;
+    constructor(message: T) {
+        this.greeting = message;
+    }
+    greet() {
+        return this.greeting;
+    }
+}
+
+var greeter = new Greeter<string>("Hello, world");
+console.log(greeter.greet());

@@ -1,0 +1,24 @@
+class Car {
+    constructor(make) { //constructors!
+        this.make = make;
+      this.currentSpeed = 25;
+    }
+
+    getCurrentSpeed(){
+          return(this.currentSpeed);
+    }
+}
+
+class RaceCar extends Car { //inheritance
+    constructor(make, topSpeed) {
+        super(make); //call the parent constructor with super
+        this.topSpeed = topSpeed;
+    }
+
+    goFast(){
+          this.currentSpeed = this.topSpeed;
+    }
+}
+
+let stang = new RaceCar('Mustang', 150);
+console.log(stang.getCurrentSpeed());

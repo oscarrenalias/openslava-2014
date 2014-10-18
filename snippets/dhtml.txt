@@ -1,0 +1,18 @@
+<HTML>
+	<HEAD>
+		<TITLE>Document.write example</TITLE>
+		<SCRIPT language="JavaScript">
+			function load() {
+			var w = window.open('','','');
+			w.document.open();
+
+			w.document.write('<html><body><h1>hello</h1></body></html>');
+			w.document.close();
+			}
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<H1>Document.write</H1>
+		<A href="javascript:load()">Open Window</A>
+	</BODY>
+</HTML>
